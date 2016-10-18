@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class MainGame extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(final Stage primaryStage) throws Exception {
 
         GridPane gridPane = new GridPane();
         final Game game = new Game();
@@ -33,6 +33,9 @@ public class MainGame extends Application {
                         button.setText(game.currentPlayer);
                         game.check(button.getId(), game.currentPlayer);
                         game.changePlayer();
+                        if (Game.gameIsFinish == true) {
+                            primaryStage.close();
+                        }
                     }
                 });
 
@@ -46,6 +49,8 @@ public class MainGame extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("TicTacToe");
         primaryStage.show();
+
+
     }
 
 

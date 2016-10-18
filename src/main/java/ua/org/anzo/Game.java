@@ -8,6 +8,8 @@ public class Game {
 
     Board board = new Board();
 
+    public static boolean gameIsFinish = false;
+
 
     private String player1 = "X";
     private String player2 = "O";
@@ -32,10 +34,13 @@ public class Game {
         if (checkWinnerX()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Congratulation " + " Player1 " + currentPlayer + " you are the winner ", ButtonType.CLOSE);
             alert.show();
+            gameIsFinish = true;
+
         }
         if (checkWinnerO()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Congratulation" + " Player2 " + currentPlayer + " you are the winner ", ButtonType.CLOSE);
             alert.show();
+            gameIsFinish = true;
         }
 
 
